@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Dataset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uploaded File: {{ filename }}</h1>
+    {% if table_html %}
+        {{ table_html|safe }}
+    {% else %}
+        <p>File uploaded successfully! (Data display will come in next steps)</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('upload_file') }}">Upload Another File</a> |
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
